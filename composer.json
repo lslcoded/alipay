@@ -1,0 +1,21 @@
+{
+    "name": "lslcoded/alipay",
+    "description": "alipay for yijukeji",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "lslcoded",
+            "email": "lslcoding@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "think\\mongo\\": "src"
+        },
+        "files": [
+        ]
+    }
+}
