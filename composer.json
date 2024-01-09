@@ -10,12 +10,5 @@
     ],
     "require": {
 
-    },
-    "autoload": {
-        "psr-4": {
-            "think\\mongo\\": "src"
-        },
-        "files": [
-        ]
     }
 }
