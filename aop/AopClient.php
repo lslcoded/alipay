@@ -74,6 +74,7 @@ class AopClient
             $this->postCharset = $config->getCharset();
             $this->rsaPrivateKey = $config->getPrivateKey();
             $this->alipayrsaPublicKey = $config->getAlipayPublicKey();
+            $this->rsaPrivateKeyFilePath = $config->getAlipayPrivateCertPath();
         }
     }
     public function generateSign($params, $signType = "RSA")
