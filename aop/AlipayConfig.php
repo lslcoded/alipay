@@ -49,6 +49,10 @@ class AlipayConfig {
     private $alipayPublicCertPath;
 
     /**
+     * 支付宝私有钥证书路径
+     */
+    private $alipayPrivateCertPath;
+    /**
      * 支付宝根证书路径（证书模式下设置，公钥模式下无需设置）
      */
     private $rootCertPath;
@@ -152,6 +156,14 @@ class AlipayConfig {
     }
     public function setAlipayPublicCertPath($alipayPublicCertPath) {
         $this->alipayPublicCertPath = $alipayPublicCertPath;
+    }
+
+    public function setAlipayPrivateCertPath($alipayPrivateCertPath){
+        $this->alipayPrivateCertPath = $alipayPrivateCertPath;
+    }
+
+    public function getAlipayPrivateCertPath(){
+        return $this->alipayPrivateCertPath;
     }
 
     public function getRootCertPath() {

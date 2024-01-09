@@ -143,18 +143,18 @@ class AopClient
 
     protected function sign($data, $signType = "RSA")
     {
-        if ($this->checkEmpty($this->rsaPrivateKeyFilePath)) {
+//        if ($this->checkEmpty($this->rsaPrivateKeyFilePath)) {
 //            $priKey = $this->rsaPrivateKey;
-            $priKey = file_get_contents('../vendor/alipath/应用私钥RSA2048.txt');
+            $priKey = file_get_contents($this->rsaPrivateKeyFilePath);
             $res = "-----BEGIN RSA PRIVATE KEY-----\n" .
                 wordwrap($priKey, 64, "\n", true) .
                 "\n-----END RSA PRIVATE KEY-----";
-        } else {
-            $priKey = file_get_contents($this->rsaPrivateKeyFilePath);
-            $res = openssl_get_privatekey($priKey);
-        }
+//        } else {
+//            $priKey = file_get_contents($this->rsaPrivateKeyFilePath);
+//            $res = openssl_get_privatekey($priKey);
+//        }
 
-        ($res) or die('您使用的私钥格式错误，请检查RSA私钥配置');
+//        ($res) or die('您使用的私钥格式错误，请检查RSA私钥配置');
 
         if ("RSA2" == $signType) {
             openssl_sign($data, $sign, $res, OPENSSL_ALGO_SHA256);
@@ -162,9 +162,9 @@ class AopClient
             openssl_sign($data, $sign, $res);
         }
 
-        if (!$this->checkEmpty($this->rsaPrivateKeyFilePath)) {
-            openssl_free_key($res);
-        }
+//        if (!$this->checkEmpty($this->rsaPrivateKeyFilePath)) {
+//            openssl_free_key($res);
+//        }
         $sign = base64_encode($sign);
         return $sign;
     }
